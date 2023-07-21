@@ -1,0 +1,37 @@
+.art-style-list {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: center; 
+  }
+  
+  .art-style {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 10px; 
+    height: 500px; 
+    width: 100rem; /* needed so that images remain same size as one another, idk why */
+  }
+  
+  .art-style img {
+    width: 100vw;;
+    height: auto; 
+    transition: transform 0.3s;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 30%;
+    height: auto;
+  }
+
+  .art-style img:hover {
+    transform: scale(1.2);
+  }
+
+  @media (max-width: 600px) {
+    .art-style-list {
+      flex-direction: column; /* Stack items vertically */
+    }
+  }
