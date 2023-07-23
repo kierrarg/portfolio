@@ -52,7 +52,7 @@ const Contact = () => {
                 <h1>Contact Me</h1>
                 <div className='form-group'>
                   <h3>For commission requests</h3>
-                    <form /*</div>onSubmit={handleSubmit}*/>
+                    {/*<form </div>onSubmit={handleSubmit}>*/}
                         <label>Your Name</label>
                         <input 
                         type='text' 
@@ -73,8 +73,8 @@ const Contact = () => {
                         <textarea rows='10' name="Details" placeholder='Type a short message' 
                         /*value={formData.Details}
                         onChange={handleInputChange}*//>
-                        <button className='btn'>Submit</button>
-                        </form>
+                        {/*<button className='btn'>Submit</button>*/}
+                        {/*</form>*/}
                         <footer>
                           <h3>Socials</h3>
                           <div className='social-icons'>
