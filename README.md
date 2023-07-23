@@ -16,6 +16,10 @@ In the project directory, you can run:
 
 ### `npm start`
 
+With the backend code uncommented you can run:
+
+### `npm start server`
+
 
 ## View site
 https://kierrarg.github.io/portfolio
