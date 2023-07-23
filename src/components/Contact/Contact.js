@@ -56,17 +56,17 @@ const Contact = () => {
                         <label>Your Name</label>
                         <input 
                         type='text' 
-                        name="Namee" placeholder="Enter Name"
+                        name="Namee" placeholder="Name"
                         /*value={formData.Namee} onChange={handleInputChange}*/></input>
                         <label>Email</label>
                         <input 
                         type='text' 
-                        name="Email" placeholder="Enter Email"
+                        name="Email" placeholder="Email"
                         /*value={formData.Email} onChange={handleInputChange}*/></input>
                         <label>Subject</label>
                         <input 
                         type='text' 
-                        name="Subj" placeholder="Subject of Message" 
+                        name="Subj" placeholder="Subject" 
                         /*value={formData.Subj}
                         onChange={handleInputChange}*/></input>
                         <label>Details</label>
