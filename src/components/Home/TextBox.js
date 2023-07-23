@@ -1,8 +1,10 @@
 import React from 'react'
+import './style.css'
 
 const TextBox = () => {
     return (
         <div className="text-box">
+            <div className='contain'>
             <h3>About</h3>
             <div className='text-b-txt'>
                 <p>
@@ -24,6 +26,7 @@ const TextBox = () => {
                 <p>
                 My primary medium has always been graphite and charcoal, however, in recent years I have began creating digital art and working with colour.
                 </p>
+            </div>
             </div>
 
         </div>
