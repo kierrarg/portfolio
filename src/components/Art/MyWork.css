@@ -13,11 +13,12 @@
     text-align: center;
     margin: 10px; 
     height: 500px; 
-    width: 100rem; /* needed so that images remain same size as one another, idk why */
+    width: 1500px; /* needed so that images remain same size as one another, idk why */
   }
   
   .art-style img {
-    width: 100vw;;
+    max-width: 100%;
+    width: auto;
     height: auto; 
     transition: transform 0.3s;
     border-radius: 50%;
@@ -30,8 +31,16 @@
     transform: scale(1.2);
   }
 
+  .art-style h3 {
+    color: black;
+  }
+
   @media (max-width: 600px) {
     .art-style-list {
       flex-direction: column; /* Stack items vertically */
+    }
+    .art-style {
+      width: 100%;
+      max-width: 1500px;
     }
   }
