@@ -11,7 +11,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
 
-  const getData = async (url) => {
+  /*const getData = async (url) => {
     const newData = await fetch(url, {
       method: 'GET',
       headers: {
@@ -22,8 +22,8 @@ function App() {
     .then(res => res.json());
     console.log(newData);
   }
-
-  getData('/api');
+*/
+  //getData('/api');
   return (
       <BrowserRouter>
         <Routes>

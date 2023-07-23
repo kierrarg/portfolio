@@ -1,4 +1,4 @@
-const config = require('./dbConfig'),
+/*const config = require('./dbConfig'),
 sql = require('mssql');
 
 const getContact = async() => {
@@ -30,3 +30,4 @@ module.exports = {
     addContact,
     getContact
 }
+*/

@@ -1,4 +1,4 @@
-class Contact {
+/*class Contact {
     constructor(Namee, Email, Subj, Details){
     this.Namee = Namee;
     this.Email = Email;
@@ -8,3 +8,4 @@ class Contact {
 }
 
 module.exports = Contact;
+*/

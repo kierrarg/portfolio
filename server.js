@@ -1,4 +1,4 @@
-const express = require('express'),
+/*const express = require('express'),
 dbOperation = require('./dbfiles/dbOperation'),
 Contact = require('./dbfiles/contact')
 cors = require('cors');
@@ -42,3 +42,4 @@ app.post('/quit', function(req, res) {
 //dbOperation.addContact(Yo);
 
 app.listen(API_PORT, () => console.log(`Listening on port ${API_PORT}`));
+*/

@@ -1,4 +1,4 @@
-const sql = require('mssql');
+/*const sql = require('mssql');
 
 const config = {
     user: 'ArtPortfolio',
@@ -22,4 +22,4 @@ async function testConnection() {
     }
 }
 
-testConnection();
+testConnection();*/

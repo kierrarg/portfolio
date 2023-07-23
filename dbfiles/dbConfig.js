@@ -1,4 +1,4 @@
-const config = {
+/*const config = {
     user: 'ArtPortfolio',
     password: 'kierrarg',
     server: 'DESKTOP-DC3RG3A',
@@ -11,3 +11,4 @@ const config = {
 }
 
 module.exports = config;
+*/

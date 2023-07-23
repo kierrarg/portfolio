@@ -5,7 +5,7 @@ import { SocialIcon } from 'react-social-icons';
 
 const Contact = () => {
     //useState hook to set up form data
-    const [formData, setFormData] = useState({
+    /*const [formData, setFormData] = useState({
         Namee: '',
         Email: '',
         Subj: '',
@@ -45,34 +45,34 @@ const Contact = () => {
             // Handle error if needed
           });
       };
-
+*/
     return (
         <div className='contact-page'>
             <div className='form'>
                 <h1>Contact Me</h1>
                 <div className='form-group'>
                   <h3>For commission requests</h3>
-                    <form onSubmit={handleSubmit}>
+                    <form /*</div>onSubmit={handleSubmit}*/>
                         <label>Your Name</label>
                         <input 
                         type='text' 
                         name="Namee" placeholder="Enter Name"
-                        value={formData.Namee} onChange={handleInputChange}></input>
+                        /*value={formData.Namee} onChange={handleInputChange}*/></input>
                         <label>Email</label>
                         <input 
                         type='text' 
                         name="Email" placeholder="Enter Email"
-                        value={formData.Email} onChange={handleInputChange}></input>
+                        /*value={formData.Email} onChange={handleInputChange}*/></input>
                         <label>Subject</label>
                         <input 
                         type='text' 
                         name="Subj" placeholder="Subject of Message" 
-                        value={formData.Subj}
-                        onChange={handleInputChange}></input>
+                        /*value={formData.Subj}
+                        onChange={handleInputChange}*/></input>
                         <label>Details</label>
                         <textarea rows='10' name="Details" placeholder='Type a short message' 
-                        value={formData.Details}
-                        onChange={handleInputChange}/>
+                        /*value={formData.Details}
+                        onChange={handleInputChange}*//>
                         <button className='btn'>Submit</button>
                         </form>
                         <footer>
