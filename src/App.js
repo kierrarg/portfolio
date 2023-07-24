@@ -26,7 +26,7 @@ function App() {
 */
   //getData('/api');
   return (
-      <BrowserRouter /*basename="/portfolio"*/>
+      <BrowserRouter basename="/portfolio">
         <Routes>
           <Route path="/" element={<FrontPage/>}/>
           <Route path="/MyWork" element={<WorkPage/>}/>
