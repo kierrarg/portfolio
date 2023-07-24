@@ -1,26 +1,168 @@
 import alien from '../../../img/alien.PNG';
 import alien1 from '../../../img/alien1.PNG';
-import './style.css'
+import './test.css'
+import React, { Component } from "react";
 
-const drawings = [
-  {id: 1, name: 'Alien', image: alien, description: '2023 - For this piece I slightly overused the blend tool. I chose to create a long neck and face because I have always liked pieces with inaccurate proportions. I did not blend my top layer of shading so that the piece did not feel too smooth.'},
-  {id: 2, name: 'Alien', image: alien1, description: '2023 - This was one of my first pieces I created using procreate. I wanted to practice with layers and blending layers to make them look more cohesive. Naturally, it is difficult to achieve flawless results. The slight splotchiness that you notice when you look closely is the result of multiple layers overlapping.'},
-];
+class Alien extends Component {
+  wheelTimeout;
+  transitionTimeout;
+  lastTouch = 0;
+  state = {
+    imgs: [alien, alien1],
+    currentIndex: 0,
+    movement: 0,
+    transitionDuration: "0s",
+  };
 
-const Alien = () => (
-    <div className="cont">
-      {drawings.map((drawing) => (
-        <div key={drawing.id}>
-          <h2>{drawing.name}</h2>
-          <a href={drawing.image} target="_blank" rel="noopener noreferrer">
-          <img src={drawing.image} alt={drawing.name} />
-          </a>
-          <div className="description-container">
-          <p className="description">{drawing.description}</p>
+  componentWillUnmount = () => {
+    clearTimeout(this.transitionTimeout);
+  };
+
+  handleTouchStart = (e) => {
+    this.lastTouch = e.nativeEvent.touches[0].clientX;
+  };
+
+  handleTouchMove = (e) => {
+    const delta = this.lastTouch - e.nativeEvent.touches[0].clientX;
+    this.lastTouch = e.nativeEvent.touches[0].clientX;
+
+    this.handleMovement(delta);
+  };
+
+  handleTouchEnd = () => {
+    this.handleMovementEnd();
+    this.lastTouch = 0;
+  };
+
+  handleWheel = (e) => {
+    clearTimeout(this.wheelTimeout);
+    this.handleMovement(e.deltaX);
+    this.wheelTimeout = setTimeout(() => this.handleMovementEnd(), 100);
+  };
+
+  handleMovement = (delta) => {
+    clearTimeout(this.transitionTimeout);
+
+    this.setState((state) => {
+      const maxLength = state.imgs.length - 1;
+      let nextMovement = state.movement + delta;
+
+      if (nextMovement < 0) {
+        nextMovement = 0;
+      }
+
+      if (nextMovement > maxLength * this.containerWidth) {
+        nextMovement = maxLength * this.containerWidth;
+      }
+
+      return {
+        movement: nextMovement,
+        transitionDuration: "0s",
+      };
+    });
+  };
+
+  handleMovementEnd = () => {
+    const { movement, currentIndex } = this.state;
+    const endPosition = movement / this.containerWidth;
+    const endPartial = endPosition % 1;
+    const endingIndex = endPosition - endPartial;
+    const deltaInteger = endingIndex - currentIndex;
+
+    let nextIndex = endingIndex;
+
+    if (deltaInteger >= 0) {
+      if (endPartial >= 0.1) {
+        nextIndex += 1;
+      }
+    } else if (deltaInteger < 0) {
+      nextIndex = currentIndex - Math.abs(deltaInteger);
+      if (endPartial > 0.9) {
+        nextIndex += 1;
+      }
+    }
+
+    this.transitionTo(nextIndex, Math.min(0.5, 1 - Math.abs(endPartial)));
+  };
+
+  transitionTo = (index, duration) => {
+    this.setState({
+      currentIndex: index,
+      movement: index * this.containerWidth,
+      transitionDuration: `${duration}s`,
+    });
+
+    this.transitionTimeout = setTimeout(() => {
+      this.setState({ transitionDuration: "0s" });
+    }, duration * 100);
+  };
+
+  updateContainerWidth = () => {
+    // Get the current width of the .swiper container
+    const swiperElement = document.querySelector(".swiper");
+    if (swiperElement) {
+      this.containerWidth = swiperElement.offsetWidth;
+    }
+  };
+
+  componentDidMount() {
+    // Update containerWidth when the component is mounted and on window resize
+    this.updateContainerWidth();
+    window.addEventListener("resize", this.updateContainerWidth);
+  }
+
+  componentWillUnmount() {
+    // Remove the resize event listener when the component is unmounted
+    window.removeEventListener("resize", this.updateContainerWidth);
+  }
+
+  render() {
+    const { currentIndex, movement, transitionDuration, imgs } = this.state;
+    const maxLength = imgs.length - 1;
+    const maxMovement = maxLength * this.containerWidth;
+
+    return (
+      <div className="Page">
+        <div
+          className="main"
+          style={{ padding: "60px 0" }} // Add padding instead of using padding-top
+        >
+          <div
+            className="swiper"
+            style={{
+              transform: `translateX(${movement * -1}px)`,
+              transitionDuration: transitionDuration,
+            }}
+          >
+            {imgs.map((src) => {
+              return <img 
+              key={src} src={src} alt="Image" />;
+            })}
           </div>
+          {movement !== 0 && (
+            <button
+              className="back move"
+              onClick={() => {
+                this.transitionTo(currentIndex - 1, 0.5);
+              }}
+            >
+              ←
+            </button>
+          )}
+          {movement !== maxMovement && (
+            <button
+              className="next move"
+              onClick={() => {
+                this.transitionTo(currentIndex + 1, 0.5);
+              }}
+            >
+              →
+            </button>
+          )}
         </div>
-      ))}
-    </div>
-);
+      </div>
+    );
+  }
+}
 
 export default Alien;

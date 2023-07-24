@@ -1,0 +1,55 @@
+body {
+    margin: 0; /* Remove default body margin */
+  }
+  
+  html, body, #root {
+    height: 100%; /* Make sure the HTML, body, and root element fill the entire viewport */
+  }
+  
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 100px;
+  }
+  
+  .swiper {
+    display: flex;
+    overflow-x: visible;
+    transition-property: transform;
+    will-change: transform;
+    max-width: 35%;
+    max-height: 100%;
+  }
+  
+  .main img {
+    width: 100%;
+    max-height: 100%;
+    max-width: 100%; 
+    margin: 15px;
+    object-fit: contain;
+  }
+
+  .move {
+    display: flex;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 20px;
+    background-color: rgba(183,123,130,0.9);
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 0;
+  }
+  
+  .back {
+    left: 5px;
+  }
+  .next {
+    right: 5px;
+  }
+

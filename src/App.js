@@ -3,11 +3,12 @@ import Image1 from './components/Home/Image1';
 import TextBox  from './components/Home/TextBox';
 import Nav from './components/Nav';
 import MyWork from './components/Art/MyWork';
-import Portrait from './components/Art/Style/Portrait'
 import Bugs from './components/Art/Style/Bugs';
 import Alien from './components/Art/Style/Alien'
 import Contact from './components/Contact/Contact';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Testpage from './components/Art/Style/Portrait'
+
 
 function App() {
 
@@ -25,7 +26,7 @@ function App() {
 */
   //getData('/api');
   return (
-      <BrowserRouter basename="/portfolio">
+      <BrowserRouter /*basename="/portfolio"*/>
         <Routes>
           <Route path="/" element={<FrontPage/>}/>
           <Route path="/MyWork" element={<WorkPage/>}/>
@@ -79,7 +80,7 @@ function WorkPage() {
   function PortraitPage () {
     return (
       <>
-      <Portrait />
+      <Testpage />
       <Nav />
       </>
     )
