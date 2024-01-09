@@ -6,10 +6,6 @@ This project was created with backend functionality using MSSQL and Node.js link
 ```dbfiles/```
 ```components/Contact/Contact.js```
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Available Scripts
 
 In the project directory, you can run:
