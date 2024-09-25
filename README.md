@@ -1,6 +1,6 @@
 # Important!
 
-## This project is under reconstruction 
+## This project is undergoing renovations
 
 
 This project was created with backend functionality using MSSQL and Node.js linking to the contact page, however, in order to deploy it through Github pages I needed to comment out the backend code. The commented out code can be found in 
